@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>アンケート</title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<nav class="navbar navbar-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand" href="/">県人会アンケート</a>
+
+    <div>
+      <a href="/student/" class="btn btn-light btn-sm me-2">学生</a>
+      <a href="/graduate/" class="btn btn-light btn-sm">卒業生</a>
+	  
+	  <a href="/students/" class="btn btn-outline-light btn-sm me-2">学生一覧</a>
+      <a href="/graduates/" class="btn btn-outline-light btn-sm">卒業生一覧</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-4">
+
+    <!-- メッセージ -->
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-success">
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+
+    <!-- 各ページの中身 -->
+    {% block content %}
+    {% endblock %}
+
+</div>
+
+</body>
+</html>

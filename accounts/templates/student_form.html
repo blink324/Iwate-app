@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container mt-4" style="max-width: 600px;">
+    <h2 class="mb-4 text-center">学生アンケート</h2>
+
+    {% if form.errors %}
+    <div class="alert alert-danger">
+        {{ form.errors }}
+    </div>
+    {% endif %}
+
+    <form method="post" class="card p-4 shadow-sm">
+        {% csrf_token %}
+
+        <div class="mb-3">
+            <label>名前</label>
+            {{ form.name }}
+        </div>
+
+        <div class="mb-3">
+            <label>ふりがな</label>
+            {{ form.furigana }}
+        </div>
+
+        <div class="mb-3">
+            <label>生年月日</label>
+            {{ form.birth_date }}
+        </div>
+
+        <div class="mb-3">
+            <label>学年</label>
+            {{ form.grade }}
+        </div>
+
+        <div class="mb-3">
+            <label>出身</label>
+            {{ form.hometown }}
+        </div>
+
+        <div class="mb-3">
+            <label>高校</label>
+            {{ form.high_school }}
+        </div>
+
+        <div class="mb-3">
+            <label>卒業年度</label>
+            {{ form.high_school_graduation_year }}
+        </div>
+
+        <div class="mb-3">
+            <label>趣味</label>
+            {{ form.hobby }}
+        </div>
+
+        <div class="mb-3">
+            <label>志望診療科</label>
+            {{ form.desired_department }}
+        </div>
+
+        <!-- 👇その他（最初は非表示） -->
+        <div class="mb-3" id="other-field" style="display:none;">
+            <label>その他</label>
+            {{ form.desired_department_other }}
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">
+            送信
+        </button>
+    </form>
+</div>
+
+<!-- 👇JSで制御 -->
+<script>
+    const select = document.querySelector('[name="desired_department"]');
+    const otherField = document.getElementById('other-field');
+
+    function toggleOther() {
+        if (select.value === "その他") {
+            otherField.style.display = "block";
+        } else {
+            otherField.style.display = "none";
+        }
+    }
+
+    select.addEventListener("change", toggleOther);
+
+    // 初期状態チェック
+    toggleOther();
+</script>
+
+{% endblock %}

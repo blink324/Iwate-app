@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2 class="mb-4">卒業生アンケート</h2>
+
+{% if form.errors %}
+<div style="color:red;">
+  {{ form.errors }}
+</div>
+{% endif %}
+
+<form method="post" class="card p-4 shadow-sm">
+    {% csrf_token %}
+
+    <div class="mb-3">
+        <label>名前</label>
+        {{ form.name }}
+    </div>
+
+    <div class="mb-3">
+        <label>ふりがな</label>
+        {{ form.furigana }}
+    </div>
+
+    <div class="mb-3">
+        <label>生年月日</label>
+        {{ form.birth_date }}
+    </div>
+
+    <div class="mb-3">
+        <label>診療科</label>
+        {{ form.department }}
+    </div>
+
+    <div class="mb-3">
+        <label>出身高校</label>
+        {{ form.high_school }}
+    </div>
+
+    <div class="mb-3">
+        <label>卒業大学</label>
+        {{ form.university }}
+    </div>
+
+    <div class="mb-3">
+        <label>卒業年</label>
+        {{ form.graduation_year }}
+    </div>
+
+    <div class="mb-3">
+        <label>勤務先</label>
+        {{ form.hospital }}
+    </div>
+
+    <div class="mb-3">
+        <label>メール</label>
+        {{ form.email }}
+    </div>
+
+    <div class="mb-3">
+        <label>電話番号</label>
+        {{ form.phone }}
+    </div>
+
+    <button type="submit" class="btn btn-success w-100">送信</button>
+</form>
+
+{% endblock %}

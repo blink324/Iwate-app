@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>卒業生一覧</h2>
+
+<a href="/export/graduates/" class="btn btn-success mb-3">Excelダウンロード</a>
+
+<table class="table table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th>名前</th>
+      <th>学部</th>
+      <th>勤務先</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  {% for g in graduates %}
+    <tr>
+      <td>{{ g.name }}</td>
+      <td>{{ g.department }}</td>
+      <td>{{ g.hospital }}</td>
+      <td>
+        <a href="/graduate/edit/{{ g.id }}/" class="btn btn-sm btn-primary">編集</a>
+        <a href="/graduate/delete/{{ g.id }}/" class="btn btn-sm btn-danger">削除</a>
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
