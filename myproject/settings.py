@@ -26,10 +26,7 @@ SECRET_KEY = 'django-insecure-hu#&i!(p(ju9+nk4o_kex#j_id%3mv&o-7+n(^c!ih!4#(-qni
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
-CSRF_TRUSTED_ORIGINS = [
-    "https://unsoiled-reaffirm-debrief.ngrok-free.dev",
-]
+CSRF_TRUSTED_ORIGINS = ['https://*.onrender.com']
 
 
 # Application definition
