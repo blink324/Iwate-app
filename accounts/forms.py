@@ -1,9 +1,14 @@
 from django import forms
 from .models import Student, Graduate
+from datetime import datetime
 
+current_year = datetime.now().year
 
-HS_YEAR_CHOICES = [(y, y) for y in range(2050, 2014, -1)]
-GRAD_YEAR_CHOICES = [(y, y) for y in range(2050, 2009, -1)]
+# 学生用（高校卒業年）
+HS_YEAR_CHOICES = [(y, y) for y in range(current_year + 6, 2000, -1)]
+
+# 卒業生用（卒業年）
+GRAD_YEAR_CHOICES = [(y, y) for y in range(current_year, 1980, -1)]
 
 GRADE_CHOICES = [
     (1, "1年"),
