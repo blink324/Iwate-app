@@ -2,8 +2,8 @@ from django import forms
 from .models import Student, Graduate
 
 
-HS_YEAR_CHOICES = [(y, y) for y in range(2030, 2014, -1)]
-GRAD_YEAR_CHOICES = [(y, y) for y in range(2030, 2009, -1)]
+HS_YEAR_CHOICES = [(y, y) for y in range(2050, 2014, -1)]
+GRAD_YEAR_CHOICES = [(y, y) for y in range(2050, 2009, -1)]
 
 GRADE_CHOICES = [
     (1, "1年"),
